@@ -17,6 +17,8 @@ Após instalação, executar a automação através do seguinte comando:
   
   Download e instalação Postman: [aqui](https://atendimento.tecnospeed.com.br/hc/pt-br/articles/360017143594-Como-instalar-e-utilizar-o-Postman-para-enviar-requisi%C3%A7%C3%B5es-HTTP)
   
+  Importar o arquivo JsonPlace.postman_collection.json para o Postman
+  
   Execução dos testes no Postman através da interface:
   ![Postman](https://miro.medium.com/max/1400/1*UlAsxHD5tCzuVXFSKliGKQ.png)
   
