@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "deac4130-dd2f-44ec-81a6-aa2f60f6a30c",
+		"name": "JsonPlace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Registros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"// Validação http code GET\r",
+							"pm.test(\"Verificar status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Validação JSON Schema\r",
+							"const schema = {\r",
+							"    \"type\": \"array\",\r",
+							"    \"default\": [],\r",
+							"    \"title\": \"Root Schema\",\r",
+							"    \"items\": {\r",
+							"        \"type\": \"object\",\r",
+							"        \"title\": \"A Schema\",\r",
+							"        \"required\": [\r",
+							"            \"id\",\r",
+							"            \"name\",\r",
+							"            \"username\",\r",
+							"            \"email\",\r",
+							"            \"address\",\r",
+							"            \"phone\",\r",
+							"            \"website\",\r",
+							"            \"company\"\r",
+							"        ],\r",
+							"        \"properties\": {\r",
+							"            \"id\": {\r",
+							"                \"type\": \"integer\",\r",
+							"                \"title\": \"The id Schema\"\r",
+							"            },\r",
+							"            \"name\": {\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The name Schema\"\r",
+							"            },\r",
+							"            \"username\": {\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The username Schema\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The email Schema\"\r",
+							"            },\r",
+							"            \"address\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"title\": \"The address Schema\",\r",
+							"                \"required\": [\r",
+							"                    \"street\",\r",
+							"                    \"suite\",\r",
+							"                    \"city\",\r",
+							"                    \"zipcode\",\r",
+							"                    \"geo\"\r",
+							"                ],\r",
+							"                \"properties\": {\r",
+							"                    \"street\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The street Schema\"\r",
+							"                    },\r",
+							"                    \"suite\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The suite Schema\"\r",
+							"                    },\r",
+							"                    \"city\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The city Schema\"\r",
+							"                    },\r",
+							"                    \"zipcode\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The zipcode Schema\"\r",
+							"                    },\r",
+							"                    \"geo\": {\r",
+							"                        \"type\": \"object\",\r",
+							"                        \"title\": \"The geo Schema\",\r",
+							"                        \"required\": [\r",
+							"                            \"lat\",\r",
+							"                            \"lng\"\r",
+							"                        ],\r",
+							"                        \"properties\": {\r",
+							"                            \"lat\": {\r",
+							"                                \"type\": \"string\",\r",
+							"                                \"title\": \"The lat Schema\"\r",
+							"                            },\r",
+							"                            \"lng\": {\r",
+							"                                \"type\": \"string\",\r",
+							"                                \"title\": \"The lng Schema\"\r",
+							"                            }\r",
+							"                        }\r",
+							"                    }\r",
+							"                }\r",
+							"            },\r",
+							"            \"phone\": {\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The phone Schema\"\r",
+							"            },\r",
+							"            \"website\": {\r",
+							"                \"type\": \"string\",\r",
+							"                \"title\": \"The website Schema\"\r",
+							"            },\r",
+							"            \"company\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"title\": \"The company Schema\",\r",
+							"                \"required\": [\r",
+							"                    \"name\",\r",
+							"                    \"catchPhrase\",\r",
+							"                    \"bs\"\r",
+							"                ],\r",
+							"                \"properties\": {\r",
+							"                    \"name\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The name Schema\"\r",
+							"                    },\r",
+							"                    \"catchPhrase\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The catchPhrase Schema\"\r",
+							"                    },\r",
+							"                    \"bs\": {\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The bs Schema\"\r",
+							"                    }\r",
+							"                }\r",
+							"            }                                                               \r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							" \r",
+							"pm.test(\"Validação Schema\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"\",\r\n    \"name\": \"Rafael Rodrigues\",\r\n    \"username\": \"rafbrod\",\r\n    \"email\": \"rafaelbr@outlook.com\",\r\n    \"address\": {\r\n        \"street\": \"Kattie Turnpike\",\r\n        \"suite\": \"Suite 198\",\r\n        \"city\": \"Lebsackbury\",\r\n        \"zipcode\": \"31428-2261\",\r\n        \"geo\": {\r\n            \"lat\": \"-38.2386\",\r\n            \"lng\": \"57.2232\"\r\n        }\r\n    },\r\n    \"phone\": \"024-648-3804\",\r\n    \"website\": \"ambrose.net\",\r\n    \"company\": {\r\n        \"name\": \"Hoeger LLC\",\r\n        \"catchPhrase\": \"Centralized empowering task-force\",\r\n        \"bs\": \"target end-to-end models\"\r\n    }    \r\n}"
+				},
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/users",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar novo Registro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verificar status code 201, 202 (POST)\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id cadastrado\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.id).to.eql(101);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Banco Parana\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Registro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verificar status code 200 (PUT)\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Parana\"\r\n}"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar Registro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verificar status code 200 (DELETE)\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/5",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "test:chrome": "cypress run --browser chrome"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": false,
+        "step_definitions": "cypress/support/steps/"
+    }
+}
+
